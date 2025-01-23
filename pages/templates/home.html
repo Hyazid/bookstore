@@ -1,12 +1,17 @@
 <!-- templates/home.html -->
 {% extends '_base.html' %}
+{% load static %}
 {% block title %}Home{% endblock title %}
 {% block content %}
 <h1>Homepage</h1>
-{% if user.is_authenticated%}
+<img class="bookcover" src="{% static 'images/img1.jpg' %}" width="300" height="300">
+    {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}!</p>
     
-    <a href="{% url 'logout' %}">Logout</a>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link p-0 text-dark">Log Out</button>
+    </form>
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     <a href="{% url 'signup' %}">Sign Up</a>
