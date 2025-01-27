@@ -8,12 +8,12 @@
     {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}!</p>
     
-    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+    <form action="{% url 'account_logout' %}" method="post" style="display: inline;">
         {% csrf_token %}
         <button type="submit" class="btn btn-link p-0 text-dark">Log Out</button>
     </form>
     {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
+    <a href="{% url 'account_login' %}">Login</a>
+    <a href="{% url 'account_signup' %}">Sign Up</a>
     {% endif %}
 {% endblock content %}
