@@ -152,3 +152,6 @@ AUTHENTICATION_BACKENDS=(
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT= str(BASE_DIR.joinpath('media'))
