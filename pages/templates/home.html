@@ -12,6 +12,11 @@
         {% csrf_token %}
         <button type="submit" class="btn btn-link p-0 text-dark">Log Out</button>
     </form>
+    <form class="form-inline mt-2 mt-md-0" action="{% url 'search_result' %}"
+    method="get">
+    <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search"
+    aria-label="Search">
+    </form>
     {% else %}
     <a href="{% url 'account_login' %}">Login</a>
     <a href="{% url 'account_signup' %}">Sign Up</a>
